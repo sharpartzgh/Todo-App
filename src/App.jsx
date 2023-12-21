@@ -5,11 +5,9 @@ import Header from './component/Header';
 import Form from './component/Form';
 import FilteringSection from './component/FilteringSection';
 import AddedItems from './component/AddedItems';
-// import { GetTheme } from './component/ThemeSelector.jsx'
 
 function App() {
 
-  // const [darkMode, ThemeSwitch] = GetTheme();
 
   const [todos, setTodos] = useState([]);
 
@@ -68,15 +66,15 @@ function App() {
   const keepFiltering = () => {
     if (filter === "all") {
       return todos.map(todo => (
-        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} />
+        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} darkMode={darkMode} />
       ));
     } else if (filter === "active") {
       return todos.filter(todo => !todo.complete).map(todo => (
-        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} />
+        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} darkMode={darkMode} />
       ));
     } else if (filter === "complete") {
       return todos.filter(todo => todo.complete).map(todo => (
-        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} />
+        <AddedItems key={todo.id} title={todo} toggle={handleToggle} deleteTodo={removeTodo} darkMode={darkMode} />
       ));
     }
     return null; // No todos to render based on filter
@@ -117,30 +115,34 @@ const handleDarkMode = () => {
 
 
   return (
-    <div className={`${darkMode ? 'bg-[#242424]' : 'bg-[#F2F2F2]'} " min-h-screen pb-20 "`} >
-        <div className='relative'>
+    <div className={`${darkMode ? 'bg-gradient-to-r from-[#9947D7] via-[#8B83F8] to-[#76A2F9]' : 'bg-[#F2F2F2]'} " min-h-screen pb-20"`} >
+      <div className=' bg-bg-desktop bg-cover bg-no-repeat h-52 w-full m-auto'>
+
           <Header HandleDarkMode={handleDarkMode} darkMode={darkMode} /> 
-          <div className='bg-white lg:mx-auto lg:w-[50%] -top-36'>
+          
           <Form
-            addtheItem={addItem} 
+            addtheItem={addItem}
+            darkMode={darkMode} 
           />
-          </div>
-        </div>
+          
+    
         
           {/* Filtering section */}
-        <div className='lg:w-[50%] lg:mx-auto bg-white'>
+      
           <FilteringSection 
           filterOut={setFilterValue}
+          darkMode={darkMode}
           />
-        </div>
+    
 
-        <div className='items-center flex flex-col justify-center  divide-y rounded-md '>
-            {keepFiltering()}
-        </div>
+       
+            {keepFiltering() }
+    
       
-        <div className='flex items-center justify-around bg-white lg:w-[50%] lg:mx-auto py-6 px-7 rounded-md'>
+          <div className={`${darkMode ? 'bg-[#0e033d] text-white' : 'bg-white'} flex justify-between m-auto lg:mx-auto md:w-[50%] lg:w-[50%] bg-white rounded py-5 px-4 shadow-xl`}>
           <h2 className="text- text-[18px]  ">{ getCount() }</h2>
           <button onClick={completedItems}>Clear Completed</button>
+          </div>
         </div>
     </div>
   );
