@@ -5,6 +5,7 @@ import Header from './component/Header';
 import Form from './component/Form';
 import FilteringSection from './component/FilteringSection';
 import AddedItems from './component/AddedItems';
+import { FaGithub } from 'react-icons/fa6';
 
 function App() {
 
@@ -112,6 +113,10 @@ const [darkMode, setDarkMode] = useState(false);
 const handleDarkMode = () => {
   setDarkMode(!darkMode);
 }
+// function when click it visit a website
+const handleGithub = () => {
+  window.location.href = "https://github.com/sharpartzgh";
+}
 
 
   return (
@@ -143,6 +148,19 @@ const handleDarkMode = () => {
           <h2 className="text-[18px]">{ getCount() }</h2>
           <button onClick={completedItems}>Clear Completed</button>
           </div>
+
+          
+          <footer>
+            <div className={`${darkMode ? 'text-white' : 'text-[#0e033d]'} flex  m-auto lg:mx-auto md:w-[50%] lg:w-[50%] rounded m max-sm:mx-[5%] my-[20px] justify-between `}>
+              <div>
+                <h1 className=' text-[12px]'>&copy; Frederick Asiamah | 2023 </h1>
+              </div>
+              <div className='flex justify-center items-center text-[12px] gap-1'>
+                <FaGithub className='lg:mx-auto md:w-[50%] lg:w-[50%] rounded m max-sm:mx-[5%] max-sm:text-[20px]'/> 
+                <span onClick={handleGithub} className=' cursor-pointer '>Sharpartzh</span>
+              </div>
+            </div>
+          </footer>
         </div>
     </div>
   );
