@@ -116,7 +116,7 @@ const handleDarkMode = () => {
 
   return (
     <div className={`${darkMode ? 'bg-gradient-to-r from-[#9947D7] via-[#8B83F8] to-[#76A2F9]' : 'bg-[#F2F2F2]'} " min-h-screen pb-20"`} >
-      <div className=' bg-bg-desktop bg-cover bg-no-repeat h-52 w-full m-auto'>
+      <div className=' bg-bg-desktop bg-cover bg-no-repeat h-52 w-full m-auto bg-yellow-500'>
 
           <Header HandleDarkMode={handleDarkMode} darkMode={darkMode} /> 
           
@@ -134,13 +134,13 @@ const handleDarkMode = () => {
           darkMode={darkMode}
           />
     
-
+ 
        
             {keepFiltering() }
     
       
-          <div className={`${darkMode ? 'bg-[#0e033d] text-white' : 'bg-white'} flex justify-between m-auto lg:mx-auto md:w-[50%] lg:w-[50%] bg-white rounded py-5 px-4 shadow-xl`}>
-          <h2 className="text- text-[18px]  ">{ getCount() }</h2>
+          <div className={`${darkMode ? 'bg-[#0e033d] text-white' : 'bg-white'} flex justify-between m-auto lg:mx-auto md:w-[50%] lg:w-[50%] rounded py-5 px-4 shadow-xl`}>
+          <h2 className="text-[18px]">{ getCount() }</h2>
           <button onClick={completedItems}>Clear Completed</button>
           </div>
         </div>
