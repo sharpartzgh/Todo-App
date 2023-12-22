@@ -18,7 +18,7 @@ const Form = ({addtheItem, darkMode}) => {
 
 
   return (
-    <div className={`${darkMode ? 'bg-[#0e033d]' : 'bg-white'} lg:mx-auto lg:w-[50%]  flex md:w-[50%]  rounded justify-between m-auto px-2`}>
+    <div className={`${darkMode ? 'bg-[#0e033d]' : 'bg-white'} lg:mx-auto lg:w-[50%]  flex md:w-[50%]  rounded justify-between m-auto px-2 max-sm:mx-[5%]`}>
         <div>
           <form onSubmit={handleSubmit} className='flex '>
             <input type="text" placeholder="Create new ToDo item"  className={`${darkMode ? 'text-white': 'text-gray-400'} p-8 text-base rounded h-14 outline-none bg-transparent`}
